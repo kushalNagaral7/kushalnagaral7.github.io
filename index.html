@@ -2,28 +2,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kushal | Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      background: #080b16;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    h1 { color: #63f3ff; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="Kushal Nagaral — Personal portfolio, digital projects, trading tools and cybersecurity interests.">
+<title>Kushal Nagaral | Digital Portfolio</title>
+<style>
+:root{--bg:#080b12;--panel:#101725;--text:#f4f7ff;--muted:#9ba9bf;--cyan:#62f5ed;--purple:#a78bfa;--line:#243044}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0%,#17234a 0,transparent 38%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,90%);margin:auto}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.logo{font-weight:900;letter-spacing:2px}.logo span{color:var(--cyan)}
+.navlinks{display:flex;gap:22px;color:var(--muted);font-size:14px}
+.hero{min-height:75vh;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:65px 0}
+.tag{display:inline-block;border:1px solid #28585c;background:#102528;color:var(--cyan);border-radius:30px;padding:6px 12px;font-size:12px;letter-spacing:1px}
+h1{font-size:clamp(42px,8vw,76px);line-height:1.05;letter-spacing:-3px;margin:20px 0}
+.gradient{background:linear-gradient(100deg,var(--cyan),#a78bfa 65%,#ff9cda);background-clip:text;-webkit-background-clip:text;color:transparent}
+p{color:var(--muted)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:11px 17px;border-radius:12px;border:1px solid var(--line);font-weight:700;font-size:14px}
+.primary{background:var(--cyan);color:#061014;border-color:var(--cyan)}
+.visual{min-height:330px;display:grid;place-items:center;perspective:800px}
+.orb{width:min(280px,75vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff 0,#62f5ed 3%,#5b64e8 22%,#241a54 52%,#080b12 72%);box-shadow:0 0 70px #6257f766,inset -20px -20px 55px #050711;position:relative;animation:float 5s ease-in-out infinite}
+.orb:before,.orb:after{content:"";position:absolute;inset:-12%;border:1px solid #62f5ed80;border-radius:50%;transform:rotateX(65deg) rotateZ(-25deg)}
+.orb:after{transform:rotateX(65deg) rotateZ(55deg);border-color:#a78bfa80}
+@keyframes float{50%{transform:translateY(-14px) rotateY(10deg)}}
+section{padding:58px 0}
+.eyebrow{color:var(--cyan);text-transform:uppercase;font-size:12px;letter-spacing:3px;font-weight:800}
+h2{font-size:clamp(28px,5vw,42px);line-height:1.2;margin:8px 0 24px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,#121b2b,#0d121d);border:1px solid var(--line);padding:23px;border-radius:18px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#62f5ed88}
+.symbol{font-size:26px}.card h3{margin:12px 0 5px}.card p{font-size:14px;margin-bottom:0}
+.skills{display:flex;gap:10px;flex-wrap:wrap}
+.skill{border:1px solid var(--line);background:#101725;padding:8px 12px;border-radius:9px;color:#c7d2e5;font-size:13px}
+.social{display:flex;flex-wrap:wrap;gap:12px}
+.social a{border:1px solid var(--line);padding:11px 14px;border-radius:10px;font-weight:700;font-size:14px}
+.social a:nth-child(1){color:#b9caff}.social a:nth-child(2){color:#ff9ccf}.social a:nth-child(3){color:#7fe9b0}.social a:nth-child(4){color:#79baff}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.small{font-size:12px}
+@media(max-width:700px){.navlinks{gap:10px;font-size:12px}.hero{grid-template-columns:1fr;padding:50px 0 20px;min-height:auto}.visual{min-height:260px;grid-row:1}.grid{grid-template-columns:1fr}.hero h1{letter-spacing:-2px}section{padding:42px 0}}
+</style>
 </head>
 <body>
-  <main>
-    <h1>KUSHAL NAGARAL</h1>
-    <p>My portfolio is working.</p>
-  </main>
-</body>
-</html>
+<div class="wrap">
+<nav>
+<a class="logo" href="#">KN<span>.</span></a>
+<div class="navlinks"><a href="#about">About</a><a href="#projects">Projects</a><a href="#connect">Connect</a></div>
+</nav>
 
+<main>
+<section class="hero">
+<div>
+<span class="tag">PERSONAL PORTFOLIO · 2026</span>
+<h1>KUSHAL<br><span class="gradient">NAGARAL.</span></h1>
+<p>Exploring technology, digital products, financial markets and cybersecurity. Building ideas into useful projects, one step at a time.</p>
+<div class="actions">
+<a class="btn primary" href="#projects">Explore my work ↘</a>
+<a class="btn" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">GitHub ↗</a>
+</div>
+</div>
+<div class="visual" aria-label="Abstract 3D glowing orb"><div class="orb"></div></div>
+</section>
+
+<section id="about">
+<div class="eyebrow">01 / About</div>
+<h2>Curiosity into creation.</h2>
+<p>I’m Kushal Nagaral. I’m interested in creating web experiences, learning about cybersecurity, exploring markets, and developing practical digital tools. This portfolio is my home on the internet — a place to share projects and document progress.</p>
+<div class="skills">
+<span class="skill">Web Projects</span><span class="skill">GitHub</span><span class="skill">Cybersecurity Learning</span><span class="skill">Forex & Gold Research</span><span class="skill">Crypto Research</span><span class="skill">UI Design</span>
+</div>
+</section>
+
+<section id="projects">
+<div class="eyebrow">02 / Selected work</div>
+<h2>Projects & explorations.</h2>
+<div class="grid">
+<article class="card"><div class="symbol">◈</div><h3>Trade Journal</h3><p>A personal concept for tracking trades, reviewing decisions and learning risk management.</p><p><a class="gradient" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">View GitHub ↗</a></p></article>
+<article class="card"><div class="symbol">⌘</div><h3>KBan</h3><p>A cybersecurity product concept focused on responsible investigations, evidence organization and authorized reporting workflows.</p><p><a class="gradient" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">Explore projects ↗</a></p></article>
+<article class="card"><div class="symbol">⬡</div><h3>Web App Experiments</h3><p>Exploring Telegram WebApps, dashboard interfaces, referral flows and ways to build better user experiences.</p><p><a class="gradient" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">Browse repositories ↗</a></p></article>
+</div>
+</section>
+
+<section>
+<div class="eyebrow">03 / Approach</div>
+<h2>Learn. Build. Improve.</h2>
+<div class="grid">
+<div class="card"><div class="symbol">01</div><h3>Learn continuously</h3><p>Developing skills through research, experimentation and hands-on practice.</p></div>
+<div class="card"><div class="symbol">02</div><h3>Build with purpose</h3><p>Focusing on clear interfaces, practical utility and responsible technology.</p></div>
+<div class="card"><div class="symbol">03</div><h3>Keep improving</h3><p>Reviewing feedback, fixing problems and making each project better.</p></div>
+</div>
+</section>
+
+<section id="connect">
+<div class="eyebrow">04 / Connect</div>
+<h2>Find me online.</h2>
+<p>Explore my work or connect through my public profiles.</p>
+<div class="social">
+<a href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">GitHub ↗</a>
+<a href="https://www.instagram.com/kushaln07/" target="_blank" rel="noopener">Instagram ↗</a>
+<a href="mailto:kn.sec7@gmail.com">Email ↗</a>
+<a href="https://www.linkedin.com/in/kushal-nagaral-02346a34a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
+</section>
+</main>
+<footer><div>© 2026 Kushal Nagaral · Built and hosted with GitHub Pages.</div><div class="small">Personal portfolio. Market-related content is for learning, not financial advice.</div></footer>
+</div>
+</body>
+  </html>
+  
