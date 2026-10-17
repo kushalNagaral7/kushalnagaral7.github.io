@@ -1,390 +1,356 @@
-
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080810">
-<title>Kushal Nagaral | Portfolio</title>
-<meta name="description" content="The personal portfolio of Kushal Nagaral — projects, technology, and ambition.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushal Nagaral | Forex, Crypto & Cyber Security Specialist</title>
+    
+    <!-- Meta Descriptions -->
+    <meta name="description" content="Portfolio of Kushal Nagaral - Forex & Crypto Trader (4+ Years), Self-Taught Cybersecurity Specialist, and Full-Stack Automation Developer.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Three.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-<style>
-:root {
-  --bg: #080810;
-  --panel: rgba(255,255,255,.055);
-  --text: #f6f6ff;
-  --muted: #a5a5bc;
-  --cyan: #55e7ff;
-  --purple: #a78bfa;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter, system-ui, Arial, sans-serif;
-  overflow-x: hidden;
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(ellipse at 15% 15%, #44247755, transparent 40%),
-    radial-gradient(ellipse at 85% 40%, #005c8050, transparent 38%),
-    #080810;
-}
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: .14;
-  background-image: radial-gradient(#b9c7ff 0.7px, transparent .7px);
-  background-size: 24px 24px;
-}
-a { color: inherit; text-decoration: none; }
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 17px 7%;
-  background: #080810d9;
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid #ffffff12;
-}
-.logo {
-  font-size: 19px;
-  font-weight: 900;
-  letter-spacing: -1px;
-}
-.logo span { color: var(--cyan); }
-.navlinks { display: flex; gap: 23px; font-size: 13px; color: var(--muted); }
-.navlinks a:hover { color: var(--cyan); }
-section { padding: 85px 7%; scroll-margin-top: 65px; }
-.hero {
-  min-height: 85vh;
-  display: grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 45px;
-  align-items: center;
-}
-.eyebrow {
-  color: var(--cyan);
-  font-size: 12px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-h1 {
-  font-size: clamp(42px, 7vw, 82px);
-  line-height: .99;
-  letter-spacing: -4px;
-  margin: 22px 0;
-}
-.gradient {
-  background: linear-gradient(100deg, #fff, var(--cyan), var(--purple));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.intro { color: var(--muted); line-height: 1.8; max-width: 520px; }
-.actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 28px; }
-.btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 13px 19px;
-  border-radius: 12px;
-  font-weight: 750;
-  font-size: 13px;
-  border: 1px solid #ffffff22;
-  transition: .25s;
-}
-.btn.primary {
-  color: #061018;
-  background: linear-gradient(100deg, var(--cyan), #b7a0ff);
-  border: 0;
-}
-.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px #55e7ff20; }
-.scene {
-  min-height: 370px;
-  display: grid;
-  place-items: center;
-  perspective: 1000px;
-}
-.profile-card {
-  width: min(100%, 330px);
-  padding: 14px;
-  border: 1px solid #ffffff26;
-  border-radius: 28px;
-  background: linear-gradient(145deg, #ffffff15, #ffffff04);
-  box-shadow: 0 35px 100px #0009, inset 0 1px #ffffff22;
-  transform: rotateY(-9deg) rotateX(5deg);
-  transition: transform .3s;
-  animation: float 5s ease-in-out infinite;
-}
-.profile-card:hover { transform: rotateY(0) rotateX(0) translateY(-5px); }
-.photo {
-  width: 100%;
-  height: 300px;
-  border-radius: 19px;
-  object-fit: cover;
-  background: linear-gradient(135deg, #24203d, #101c2c);
-}
-.card-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 5px 5px;
-}
-.card-bottom small { color: var(--muted); }
-.orb {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #55e7ff44, #a78bfa44);
-  border: 1px solid #ffffff30;
-  backdrop-filter: blur(8px);
-  transform: translate(145px, -155px) rotate(18deg);
-  animation: float 4s ease-in-out infinite reverse;
-}
-@keyframes float {
-  0%,100% { translate: 0 0; }
-  50% { translate: 0 -13px; }
-}
-.section-head { margin-bottom: 30px; }
-h2 { font-size: clamp(30px, 5vw, 46px); letter-spacing: -1.5px; margin: 10px 0; }
-.section-desc { color: var(--muted); line-height: 1.7; }
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 17px;
-}
-.tile {
-  padding: 24px;
-  border: 1px solid #ffffff14;
-  border-radius: 20px;
-  background: var(--panel);
-  backdrop-filter: blur(12px);
-  transition: transform .25s, border-color .25s;
-  transform-style: preserve-3d;
-}
-.tile:hover { border-color: #55e7ff80; transform: translateY(-6px); }
-.tile .symbol { font-size: 26px; }
-.tile h3 { margin: 17px 0 9px; }
-.tile p { color: var(--muted); font-size: 14px; line-height: 1.75; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-.tag {
-  color: var(--cyan);
-  border: 1px solid #55e7ff35;
-  background: #55e7ff0c;
-  border-radius: 8px;
-  padding: 6px 9px;
-  font-size: 11px;
-}
-.socials { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
-.social {
-  padding: 12px 15px;
-  border-radius: 12px;
-  border: 1px solid #ffffff20;
-  background: #ffffff08;
-  font-size: 13px;
-  transition: .2s;
-}
-.social:hover { border-color: var(--purple); color: var(--cyan); }
-footer {
-  padding: 26px 7%;
-  color: var(--muted);
-  border-top: 1px solid #ffffff12;
-  font-size: 12px;
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-.reveal { opacity: 0; transform: translateY(20px); transition: .7s ease; }
-.reveal.show { opacity: 1; transform: translateY(0); }
-@media (max-width: 760px) {
-  nav { padding: 15px 5%; }
-  .navlinks { gap: 12px; font-size: 11px; }
-  section { padding: 65px 6%; }
-  .hero { grid-template-columns: 1fr; gap: 10px; padding-top: 60px; }
-  h1 { letter-spacing: -2.5px; }
-  .scene { min-height: 350px; }
-  .profile-card { max-width: 290px; }
-  .photo { height: 270px; }
-  .orb { transform: translate(120px, -140px) rotate(18deg); }
-  .grid { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-</style>
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        cyber: {
+                            bg: '#05070d',
+                            panel: 'rgba(11, 15, 25, 0.75)',
+                            border: 'rgba(0, 240, 255, 0.18)',
+                            cyan: '#00f0ff',
+                            purple: '#8a2be2',
+                            green: '#00ff87',
+                            amber: '#ffb703',
+                        }
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 20px rgba(0, 240, 255, 0.35)',
+                        'neon-purple': '0 0 20px rgba(138, 43, 226, 0.35)',
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s infinite ease-in-out',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 0.4 },
+                            '50%': { opacity: 0.9 },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Canvas CSS */
+        body {
+            background-color: #05070d;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Classes */
+        .glass-card {
+            background: rgba(11, 15, 25, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #00f0ff 0%, #8a2be2 50%, #00ff87 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05070d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+    </style>
 </head>
+<body class="font-sans antialiased selection:bg-cyber-cyan selection:text-black">
 
-<body>
-<nav>
-  <a class="logo" href="#home">KN<span>.</span></a>
-  <div class="navlinks">
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Links</a>
-  </div>
-</nav>
+    <!-- 3D Three.js WebGL Canvas Background -->
+    <div id="bg-canvas"></div>
 
-<main>
-<section class="hero" id="home">
-  <div class="reveal">
-    <div class="eyebrow">Personal Portfolio · 2026</div>
-    <h1>Kushal<br><span class="gradient">Nagaral.</span></h1>
-    <p class="intro">
-      Curious mind. Ambitious goals. Building projects, learning technology,
-      and turning ideas into something real — one step at a time.
-    </p>
-    <div class="actions">
-      <a class="btn primary" href="#projects">Explore my work ↗</a>
-      <a class="btn" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 ease-in-out glass-card px-5 py-3.5 rounded-xl flex items-center space-x-3 text-cyber-cyan border-cyber-cyan">
+        <i data-lucide="check-circle" class="w-5 h-5 text-cyber-green"></i>
+        <span id="toast-msg" class="font-mono text-sm font-medium text-white">Copied to clipboard!</span>
     </div>
-  </div>
 
-  <div class="scene reveal">
-    <div class="orb" aria-hidden="true"></div>
-    <div class="profile-card" id="tiltCard">
-      <!-- Keep your photo in the same folder as index.html -->
-      <img class="photo" src="profile.jpg" alt="Kushal Nagaral"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
-      <div class="photo" style="display:none;place-items:center;color:#55e7ff;font-size:14px">
-        Add your photo as profile.jpg
-      </div>
-      <div class="card-bottom">
-        <div>
-          <strong>Kushal Nagaral</strong><br>
-          <small>Independent learner · Builder</small>
-        </div>
-        <span style="color:#55e7ff;font-size:24px">✳</span>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Main Web Application Wrapper -->
+    <div class="relative z-10 min-h-screen flex flex-col justify-between">
 
-<section id="about">
-  <div class="section-head reveal">
-    <div class="eyebrow">01 / About</div>
-    <h2>Learning. Building. <span class="gradient">Growing.</span></h2>
-    <p class="section-desc">
-      I believe progress comes from curiosity, consistency, and the courage
-      to start before everything is perfect.
-    </p>
-  </div>
-  <div class="grid">
-    <article class="tile reveal">
-      <div class="symbol">⌘</div>
-      <h3>Technology</h3>
-      <p>Exploring websites, digital products, and practical technology projects.</p>
-    </article>
-    <article class="tile reveal">
-      <div class="symbol">◈</div>
-      <h3>Problem Solving</h3>
-      <p>Learning by experimenting, improving ideas, and solving real problems.</p>
-    </article>
-    <article class="tile reveal">
-      <div class="symbol">↗</div>
-      <h3>Ambition</h3>
-      <p>Building skills with discipline and focusing on long-term progress.</p>
-    </article>
-  </div>
-</section>
+        <!-- Header / Navigation Bar -->
+        <header class="sticky top-0 z-40 w-full glass-card border-b border-cyber-border/40 backdrop-blur-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                
+                <!-- Brand Logo -->
+                <a href="#hero" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyber-cyan to-cyber-purple flex items-center justify-center text-black font-mono font-bold text-xl shadow-neon-cyan group-hover:scale-105 transition-transform">
+                        KN
+                    </div>
+                    <span class="font-mono font-bold text-lg tracking-wider text-white group-hover:text-cyber-cyan transition-colors">
+                        KUSHAL<span class="text-cyber-cyan">.SEC</span>
+                    </span>
+                </a>
 
-<section id="projects">
-  <div class="section-head reveal">
-    <div class="eyebrow">02 / Selected work</div>
-    <h2>Projects in <span class="gradient">progress.</span></h2>
-    <p class="section-desc">A growing collection of experiments and things I'm building.</p>
-  </div>
-  <div class="grid">
-    <article class="tile reveal">
-      <div class="symbol">◉</div>
-      <h3>Personal Portfolio</h3>
-      <p>A responsive portfolio with animated elements, project highlights, and social links.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span></div>
-      <p><a class="gradient" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>
-    </article>
-    <article class="tile reveal">
-      <div class="symbol">⌘</div>
-      <h3>KBan</h3>
-      <p>A concept for a professional dashboard focused on authorized investigations and legitimate enforcement workflows.</p>
-      <div class="tags"><span class="tag">Dashboard</span><span class="tag">UI Design</span></div>
-      <p><a class="gradient" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener noreferrer">Explore my repositories ↗</a></p>
-    </article>
-    <article class="tile reveal">
-      <div class="symbol">◇</div>
-      <h3>Next Project</h3>
-      <p>New ideas are always in progress. Check back to see what I build next.</p>
-      <div class="tags"><span class="tag">Learning</span><span class="tag">Building</span></div>
-      <p><a class="gradient" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener noreferrer">Follow my work ↗</a></p>
-    </article>
-  </div>
-</section>
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8 font-mono text-xs tracking-wider">
+                    <a href="#about" class="text-gray-300 hover:text-cyber-cyan transition-colors flex items-center space-x-1">
+                        <span class="text-cyber-cyan">//</span> <span>01. ABOUT</span>
+                    </a>
+                    <a href="#expertise" class="text-gray-300 hover:text-cyber-cyan transition-colors flex items-center space-x-1">
+                        <span class="text-cyber-cyan">//</span> <span>02. EXPERTISE</span>
+                    </a>
+                    <a href="#stats" class="text-gray-300 hover:text-cyber-cyan transition-colors flex items-center space-x-1">
+                        <span class="text-cyber-cyan">//</span> <span>03. METRICS</span>
+                    </a>
+                    <a href="#connect" class="text-gray-300 hover:text-cyber-cyan transition-colors flex items-center space-x-1">
+                        <span class="text-cyber-cyan">//</span> <span>04. CONNECT</span>
+                    </a>
+                </nav>
 
-<section id="contact">
-  <div class="section-head reveal">
-    <div class="eyebrow">03 / Find me online</div>
-    <h2>Let's connect<span class="gradient">.</span></h2>
-    <p class="section-desc">Interested in my work? Explore my projects or connect with me online.</p>
-  </div>
-  <div class="socials reveal">
-    <a class="social" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener noreferrer">⌘ GitHub ↗</a>
-    <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">in LinkedIn ↗</a>
-    <a class="social" href="mailto:hello@example.com">✉ Email ↗</a>
-  </div>
-</section>
-</main>
+                <!-- Action Button -->
+                <div class="flex items-center space-x-4">
+                    <a href="#connect" class="px-4 py-2 rounded-lg font-mono text-xs font-semibold bg-cyber-cyan/10 border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-black transition-all duration-300 shadow-neon-cyan">
+                        CONNECT_TERMINAL
+                    </a>
+                </div>
+            </div>
+        </header>
 
-<footer>
-  <span>© <span id="year"></span> Kushal Nagaral</span>
-  <span>Designed with ambition. Built for the web.</span>
-</footer>
+        <!-- Page Sections Container -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28 py-12 w-full">
 
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
+            <!-- Hero Section -->
+            <section id="hero" class="min-h-[75vh] flex flex-col justify-center items-start pt-6">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full glass-card border-cyber-cyan/30 text-xs font-mono text-cyber-green mb-6">
+                    <span class="w-2 h-2 rounded-full bg-cyber-green animate-ping"></span>
+                    <span>ONLINE // Market Terminal & Lab Operational</span>
+                </div>
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+                <!-- Main Name -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-4">
+                    Kushal Nagaral
+                </h1>
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+                <!-- Typed Dynamic Headline -->
+                <div class="h-12 sm:h-16 flex items-center mb-6">
+                    <p class="text-lg sm:text-2xl md:text-3xl font-mono text-gray-300">
+                        <span class="text-cyber-cyan font-bold">> </span>
+                        <span id="typed-text" class="gradient-text font-bold"></span>
+                        <span class="animate-pulse text-cyber-cyan">|</span>
+                    </p>
+                </div>
 
-const card = document.getElementById("tiltCard");
-if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-  card.addEventListener("pointermove", e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    card.style.animation = "none";
-    card.style.transform = `rotateY(${x * 16}deg) rotateX(${-y * 12}deg)`;
-  });
-  card.addEventListener("pointerleave", () => {
-    card.style.transform = "";
-    card.style.animation = "";
-  });
-}
-</script>
-</body>
-</html>
+                <!-- Hero Tagline -->
+                <p class="max-w-2xl text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
+                    High-frequency trading analysis, market liquidity strategy, ethical security labs, cyber defense, and custom automated scripting tools.
+                </p>
+
+                <!-- Actions & Direct Buttons -->
+                <div class="flex flex-wrap gap-4 font-mono text-sm">
+                    <a href="#expertise" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyber-cyan to-blue-600 text-black font-bold flex items-center space-x-2 hover:shadow-neon-cyan transition-all transform hover:-translate-y-0.5">
+                        <i data-lucide="cpu" class="w-4 h-4"></i>
+                        <span>EXPLORE_DOMAINS</span>
+                    </a>
+                    <button onclick="copyEmail('kn.sec7@gmail.com')" class="px-6 py-3.5 rounded-xl glass-card text-white hover:text-cyber-cyan flex items-center space-x-2 transition-all border border-cyber-border hover:border-cyber-cyan">
+                        <i data-lucide="copy" class="w-4 h-4 text-cyber-cyan"></i>
+                        <span>COPY_EMAIL</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="scroll-mt-28">
+                <div class="glass-card rounded-2xl p-6 sm:p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none font-mono text-8xl text-cyber-cyan font-bold">
+                        01
+                    </div>
+                    
+                    <div class="max-w-3xl">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <i data-lucide="terminal" class="w-6 h-6 text-cyber-cyan"></i>
+                            <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
+                                <span class="text-cyber-cyan">01.</span> PROFILE_OVERVIEW
+                            </h2>
+                        </div>
+
+                        <div class="space-y-4 text-gray-300 leading-relaxed text-base sm:text-lg">
+                            <p>
+                                Operating at the core intersection of <strong class="text-cyber-cyan">Financial Markets</strong>, <strong class="text-cyber-purple">Security Research</strong>, and <strong class="text-cyber-green">Software Automation</strong>.
+                            </p>
+                            <p>
+                                With over 4 years of quantitative technical analysis experience in Forex and Cryptocurrency markets, I focus on market liquidity, price structure, and strategy execution. Simultaneously, I construct web tools, build custom Telegram bots, and conduct practical cybersecurity research to secure digital assets and web infrastructure.
+                            </p>
+                        </div>
+
+                        <!-- Capability Pills Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 font-mono text-xs">
+                            <div class="p-3.5 rounded-xl bg-black/40 border border-cyber-border/60 flex items-center space-x-3">
+                                <i data-lucide="trending-up" class="w-5 h-5 text-cyber-green"></i>
+                                <span>4+ Years Forex & Crypto Trading</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-black/40 border border-cyber-border/60 flex items-center space-x-3">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-cyber-cyan"></i>
+                                <span>Self-Taught Cyber Security Lab</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-black/40 border border-cyber-border/60 flex items-center space-x-3">
+                                <i data-lucide="bot" class="w-5 h-5 text-cyber-purple"></i>
+                                <span>Telegram Bot & Script Automation</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-black/40 border border-cyber-border/60 flex items-center space-x-3">
+                                <i data-lucide="code" class="w-5 h-5 text-cyber-amber"></i>
+                                <span>HTML5, CSS3, JS & Python Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expertise / Skill Cards Section -->
+            <section id="expertise" class="scroll-mt-28">
+                <div class="flex items-center space-x-3 mb-10">
+                    <i data-lucide="layers" class="w-6 h-6 text-cyber-cyan"></i>
+                    <h2 class="text-2xl sm:text-3xl font-bold font-mono text-white">
+                        <span class="text-cyber-cyan">02.</span> EXPERTISE_&_DOMAINS
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Domain 1: Trading -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-cyber-green/10 border border-cyber-green/30 flex items-center justify-center text-cyber-green mb-6 group-hover:bg-cyber-green group-hover:text-black transition-colors">
+                                <i data-lucide="candlestick-chart" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Forex & Crypto Trading</h3>
+                            <p class="text-xs font-mono text-cyber-green mb-4">// 4+ Years Market Experience</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                                Specialized in technical market structure, liquidity sweeps, risk-to-reward ratio management, and portfolio hedging across major currencies and crypto tokens.
+                            </p>
+                        </div>
+                        <ul class="text-xs font-mono text-gray-300 space-y-2 border-t border-cyber-border/50 pt-4">
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-green"></i>
+                                <span>Technical Analysis & Price Action</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-green"></i>
+                                <span>Risk Management & Execution</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-green"></i>
+                                <span>DeFi & Centralized Markets</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Domain 2: Cyber Security -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan mb-6 group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
+                                <i data-lucide="shield-alert" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Cyber Security</h3>
+                            <p class="text-xs font-mono text-cyber-cyan mb-4">// Practical & Self-Taught</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                                Hands-on practical testing in lab environments, focusing on network vulnerability inspection, web safety audits, threat analysis, and defense strategies.
+                            </p>
+                        </div>
+                        <ul class="text-xs font-mono text-gray-300 space-y-2 border-t border-cyber-border/50 pt-4">
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+                                <span>Penetration Testing Labs</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+                                <span>Network Protocol & Traffic Inspection</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-cyan"></i>
+                                <span>Web App Vulnerability Assessment</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Domain 3: Automation & Dev -->
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between group">
+                        <div>
+                            <div class="w-14 h-14 rounded-xl bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center text-cyber-purple mb-6 group-hover:bg-cyber-purple group-hover:text-white transition-colors">
+                                <i data-lucide="code-2" class="w-7 h-7"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Automation & Dev</h3>
+                            <p class="text-xs font-mono text-cyber-purple mb-4">// Custom Bots & Web Apps</p>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                                Crafting clean web UIs alongside custom Telegram trading alert bots, web scrapers, and task automation scripts using Python, JavaScript, and APIs.
+                            </p>
+                        </div>
+                        <ul class="text-xs font-mono text-gray-300 space-y-2 border-t border-cyber-border/50 pt-4">
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-purple"></i>
+                                <span>Telegram Trading & Alert Bots</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i data-lucide="check" class="w-3.5 h-3.5 text-cyber-purple"></i>
+                              
