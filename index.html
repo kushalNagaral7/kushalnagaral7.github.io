@@ -1,451 +1,361 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090b0a">
-<meta name="description" content="Kushal Nagaral — personal portfolio featuring technology projects, trading tools and cybersecurity interests.">
-<title>Kushal Nagaral | Digital Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090d">
+  <meta name="description" content="Kushal Nagaral — personal portfolio, projects, technology and digital work.">
+  <title>Kushal Nagaral | Personal Portfolio</title>
+  <style>
+    :root {
+      --bg: #09090d;
+      --panel: #111119;
+      --line: rgba(255,255,255,.10);
+      --muted: #a2a2b5;
+      --text: #f7f7fb;
+      --purple: #a78bfa;
+      --cyan: #67e8f9;
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(124,58,237,.13), transparent 38%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+    .wrap { width: min(1100px, 90%); margin: auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(9,9,13,.88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { font-weight: 850; letter-spacing: -.7px; }
+    .brand span { color: var(--purple); }
+    .navlinks { display: flex; gap: 22px; flex-wrap: wrap; }
+    .navlinks a { color: var(--muted); font-size: 13px; }
+    .navlinks a:hover { color: white; }
 
-<style>
-:root {
-  --bg: #090b0a;
-  --panel: #111411;
-  --text: #f4f5f2;
-  --muted: #969c96;
-  --line: #252a25;
-  --green: #c2ff65;
-  --max: 1160px;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 85px; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.65;
-  overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
-button, a { -webkit-tap-highlight-color: transparent; }
-img { display: block; width: 100%; }
-.wrap { width: min(var(--max), calc(100% - 40px)); margin: auto; }
-h1, h2, h3, .brand { font-family: 'Space Grotesk', sans-serif; }
-h2 { font-size: clamp(30px, 5vw, 48px); line-height: 1.12; letter-spacing: -1.8px; }
-.eyebrow {
-  color: var(--green); text-transform: uppercase; letter-spacing: 2px;
-  font-size: 11px; font-weight: 700;
-}
-.muted { color: var(--muted); }
-.green { color: var(--green); }
+    .hero {
+      min-height: 590px;
+      padding: 90px 0 75px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 60px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--cyan);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+    .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px var(--cyan);
+    }
+    h1 {
+      margin: 18px 0;
+      font-size: clamp(42px, 7vw, 76px);
+      letter-spacing: -4px;
+      line-height: 1.06;
+    }
+    .gradient {
+      background: linear-gradient(100deg, #c4b5fd, #67e8f9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .intro { max-width: 540px; color: var(--muted); font-size: 16px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 19px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 750;
+      transition: transform .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--purple); }
+    .primary {
+      background: linear-gradient(110deg, #a78bfa, #67e8f9);
+      color: #09090d;
+      border: none;
+    }
+    .portrait-frame {
+      position: relative;
+      width: min(100%, 350px);
+      margin: auto;
+      padding: 10px;
+      border-radius: 30px;
+      background: linear-gradient(145deg, #a78bfa, #27213b 45%, #67e8f9);
+      box-shadow: 0 25px 90px rgba(124,58,237,.17);
+    }
+    .portrait {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 22px;
+      background: #171720;
+    }
+    .photo-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 12px;
+    }
+    section { padding: 65px 0; }
+    .section-head { margin-bottom: 26px; }
+    .section-head h2 { font-size: clamp(27px, 4vw, 38px); letter-spacing: -1.5px; margin: 5px 0; }
+    .section-head p { color: var(--muted); margin: 0; font-size: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+    .card {
+      padding: 25px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
+      border-radius: 19px;
+      transition: transform .2s, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: rgba(167,139,250,.5); }
+    .card h3 { margin: 10px 0 8px; font-size: 19px; }
+    .card p { color: var(--muted); font-size: 14px; margin: 0; }
+    .symbol {
+      display: grid;
+      place-items: center;
+      width: 43px; height: 43px;
+      border-radius: 13px;
+      background: rgba(167,139,250,.12);
+      font-size: 21px;
+    }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 17px; }
+    .tag {
+      border: 1px solid var(--line);
+      padding: 5px 10px;
+      border-radius: 8px;
+      color: #c9c9d8;
+      font-size: 11px;
+    }
+    .skills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .skill {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-size: 13px;
+      color: #d9d9e7;
+    }
+    .socials { display: flex; flex-wrap: wrap; gap: 12px; }
+    .socials a {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--cyan);
+    }
+    .socials a:hover { border-color: var(--cyan); }
+    .contact-box {
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: radial-gradient(ellipse at top right, rgba(124,58,237,.14), transparent 60%), var(--panel);
+      padding: clamp(24px, 5vw, 45px);
+    }
+    footer { border-top: 1px solid var(--line); padding: 25px 0; color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
-header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(9,11,10,.88); backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,.07);
-}
-.nav {
-  min-height: 72px; display: flex; align-items: center;
-  justify-content: space-between; gap: 20px;
-}
-.brand { font-size: 18px; font-weight: 700; letter-spacing: -.5px; }
-.brand span { color: var(--green); }
-.nav-links { display: flex; align-items: center; gap: 24px; font-size: 12px; color: #c1c5c0; }
-.nav-links a:hover { color: var(--green); }
-.nav-cta {
-  border: 1px solid #454d43; border-radius: 5px;
-  padding: 9px 13px; color: var(--green);
-}
-.hero { padding: 76px 0 90px; }
-.hero-grid {
-  display: grid; grid-template-columns: 1.15fr .85fr;
-  align-items: center; gap: 64px;
-}
-.availability {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 7px 11px; border: 1px solid var(--line);
-  border-radius: 50px; color: #c7ccc6; font-size: 11px;
-  margin-bottom: 25px;
-}
-.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
-.hero h1 {
-  font-size: clamp(48px, 7.2vw, 86px); line-height: .99;
-  letter-spacing: -5px; font-weight: 600; margin-bottom: 25px;
-}
-.hero h1 span { color: var(--green); }
-.hero-copy { max-width: 520px; color: #a6aca6; font-size: 15px; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-.btn {
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 9px; border-radius: 5px; padding: 12px 17px;
-  font-size: 12px; font-weight: 700; transition: .2s;
-}
-.btn-primary { background: var(--green); color: #10140c; }
-.btn-primary:hover { background: #d5ff9c; transform: translateY(-2px); }
-.btn-secondary { border: 1px solid #343a34; color: #f0f2ed; }
-.btn-secondary:hover { border-color: var(--green); }
-.hero-meta {
-  display: flex; gap: 26px; flex-wrap: wrap; margin-top: 38px;
-  color: #858d85; font-size: 11px;
-}
-.hero-meta strong { color: #e7eae5; font-weight: 600; }
-.hero-visual { position: relative; max-width: 430px; margin-left: auto; width: 100%; }
-.photo-frame {
-  aspect-ratio: 4 / 5; overflow: hidden; border-radius: 8px;
-  border: 1px solid #343a32; background: #171b17; position: relative;
-}
-.photo-frame img { height: 100%; object-fit: cover; object-position: center; filter: saturate(.72); }
-.photo-frame:after {
-  content: ""; position: absolute; inset: 35% 0 0;
-  background: linear-gradient(transparent, rgba(9,11,10,.75));
-}
-.photo-tag {
-  position: absolute; bottom: 18px; left: 18px; z-index: 1;
-  font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px;
-}
-.photo-index {
-  position: absolute; top: 14px; right: 14px; z-index: 2;
-  background: rgba(9,11,10,.78); border: 1px solid #41463e;
-  padding: 7px 10px; font-size: 10px; color: var(--green);
-}
-.float-card {
-  position: absolute; bottom: 50px; left: -45px; z-index: 2;
-  width: 155px; background: #151915; border: 1px solid #363d34;
-  border-radius: 6px; padding: 15px; box-shadow: 0 20px 50px #0007;
-}
-.float-card small { display: block; color: var(--muted); font-size: 10px; }
-.float-card strong { font-size: 14px; }
-
-.ticker { border-block: 1px solid var(--line); overflow: hidden; }
-.ticker-inner {
-  display: flex; justify-content: space-between; flex-wrap: wrap;
-  gap: 15px; padding: 20px 0; color: #858b83;
-  text-transform: uppercase; letter-spacing: 1.6px; font-size: 10px;
-}
-.ticker b { color: var(--green); margin-right: 8px; }
-
-.section { padding: 94px 0; }
-.section-head {
-  display: flex; justify-content: space-between; align-items: end;
-  gap: 24px; margin-bottom: 35px;
-}
-.section-head p { max-width: 380px; font-size: 13px; color: var(--muted); }
-.about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; }
-.about-note {
-  padding: 25px; border: 1px solid var(--line);
-  background: linear-gradient(145deg, #141814, #0c0e0c);
-  border-radius: 7px; min-height: 230px;
-}
-.about-note .symbol { color: var(--green); font-size: 34px; margin-bottom: 25px; }
-.about-note p { font-family: 'Space Grotesk', sans-serif; font-size: 21px; line-height: 1.4; }
-.about-copy p { color: #a3aaa2; font-size: 14px; margin-bottom: 17px; }
-.about-details { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
-.detail {
-  border-top: 1px solid var(--line); padding-top: 13px;
-  color: #a1a79f; font-size: 11px;
-}
-.detail strong { display: block; color: #f2f4ef; font-size: 13px; margin-top: 4px; }
-
-.projects { background: #0d100d; border-block: 1px solid #1c211c; }
-.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.project-card {
-  border: 1px solid #292e28; background: #101310;
-  border-radius: 7px; overflow: hidden; transition: .25s;
-}
-.project-card:hover { transform: translateY(-4px); border-color: #697c51; }
-.project-image { aspect-ratio: 16/9; overflow: hidden; background: #171b16; position: relative; }
-.project-image img { height: 100%; object-fit: cover; transition: transform .4s; opacity: .85; }
-.project-card:hover .project-image img { transform: scale(1.04); }
-.project-label {
-  position: absolute; top: 14px; left: 14px;
-  background: #0b0d0be8; border: 1px solid #3b4338;
-  color: var(--green); border-radius: 3px; padding: 5px 9px;
-  font-size: 9px; text-transform: uppercase; letter-spacing: 1px;
-}
-.project-body { padding: 23px; }
-.project-top { display: flex; align-items: start; justify-content: space-between; gap: 12px; }
-.project-top h3 { font-size: 20px; letter-spacing: -.5px; }
-.project-number { color: #6d756b; font-size: 11px; }
-.project-body p { color: var(--muted); font-size: 12px; margin: 12px 0 18px; }
-.tags { display: flex; gap: 7px; flex-wrap: wrap; }
-.tags span {
-  border: 1px solid #30362f; border-radius: 3px;
-  padding: 4px 7px; font-size: 10px; color: #bbc1b8;
-}
-.project-link { display: inline-block; margin-top: 20px; color: var(--green); font-size: 11px; font-weight: 700; }
-
-.skill-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
-.skill {
-  border: 1px solid var(--line); background: #0d100d; border-radius: 5px;
-  padding: 21px 17px; min-height: 140px; transition: .2s;
-}
-.skill:hover { border-color: #65794c; }
-.skill-icon { font-size: 21px; margin-bottom: 18px; color: var(--green); }
-.skill h3 { font-size: 14px; margin-bottom: 5px; }
-.skill p { color: var(--muted); font-size: 11px; }
-
-.principles { border-block: 1px solid var(--line); background: #0d100d; }
-.principle-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 25px; }
-.principle { border-left: 1px solid #454f3b; padding: 4px 0 4px 18px; }
-.principle h3 { font-size: 16px; margin-bottom: 8px; }
-.principle p { color: var(--muted); font-size: 12px; }
-
-.contact-box {
-  padding: clamp(26px, 5vw, 55px);
-  border: 1px solid #333b30; border-radius: 8px;
-  background: radial-gradient(ellipse at 100% 0%, #27351e 0%, #111510 45%, #0c0e0c 100%);
-}
-.contact-box h2 { max-width: 650px; margin: 12px 0 18px; }
-.contact-box p { max-width: 520px; color: #a5ada2; font-size: 13px; }
-.contact-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
-.socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-.socials a {
-  border: 1px solid #343a32; border-radius: 4px; padding: 8px 11px;
-  color: #d2d7cf; font-size: 11px;
-}
-.socials a:hover { color: var(--green); border-color: var(--green); }
-
-footer { border-top: 1px solid var(--line); padding: 25px 0; }
-.footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-footer p { color: #777f75; font-size: 10px; }
-
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s, transform .65s; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *:before, *:after { transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
-}
-@media (max-width: 800px) {
-  .nav { min-height: 64px; }
-  .nav-links { gap: 12px; font-size: 11px; }
-  .nav-links a:nth-child(2), .nav-links a:nth-child(3) { display: none; }
-  .hero { padding: 53px 0 65px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 38px; }
-  .hero h1 { letter-spacing: -3px; }
-  .hero-visual { max-width: 370px; margin: 0 auto; }
-  .float-card { left: -10px; }
-  .section { padding: 68px 0; }
-  .about-grid { grid-template-columns: 1fr; gap: 24px; }
-  .skill-grid { grid-template-columns: 1fr 1fr; }
-  .principle-grid { grid-template-columns: 1fr; gap: 24px; }
-}
-@media (max-width: 500px) {
-  .wrap { width: calc(100% - 30px); }
-  .nav-cta { padding: 8px 9px; }
-  .brand { font-size: 16px; }
-  .hero h1 { font-size: 51px; }
-  .hero-copy { font-size: 13px; }
-  .section-head { align-items: start; flex-direction: column; }
-  .project-grid { grid-template-columns: 1fr; }
-  .skill { padding: 16px 13px; }
-  .about-details { gap: 10px; }
-  .ticker-inner { justify-content: flex-start; gap: 13px 23px; }
-}
-</style>
+    @media (max-width: 720px) {
+      .navlinks { gap: 12px; }
+      .navlinks a { font-size: 11px; }
+      .hero { grid-template-columns: 1fr; gap: 35px; padding-top: 58px; }
+      h1 { letter-spacing: -2.5px; }
+      .hero-copy { order: 1; }
+      .portrait-wrap { order: 0; }
+      .portrait-frame { width: min(75%, 290px); }
+      .grid { grid-template-columns: 1fr; }
+      section { padding: 45px 0; }
+    }
+    @media (max-width: 390px) {
+      nav { align-items: flex-start; padding: 15px 0; flex-direction: column; }
+      .navlinks { gap: 14px; }
+    }
+  </style>
 </head>
-
 <body>
-<header>
-  <nav class="nav wrap" aria-label="Main navigation">
-    <a class="brand" href="#home">KN<span>.</span></a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a class="nav-cta" href="#contact">Let's connect ↗</a>
-    </div>
-  </nav>
-</header>
+  <!-- Change the photo filename below to your uploaded image's exact name. -->
+  <!-- Example: profile.jpg, profile.png, or images/my-photo.jpg -->
 
-<main>
-<section class="hero" id="home">
-  <div class="wrap hero-grid">
-    <div class="reveal">
-      <div class="availability"><span class="dot"></span> PERSONAL PORTFOLIO · 2026</div>
-      <p class="eyebrow">Independent learner · Digital builder</p>
-      <h1 style="margin-top:17px">Kushal<br>Nagaral<span>.</span></h1>
-      <p class="hero-copy">
-        Exploring technology, financial markets and cybersecurity —
-        turning curiosity into practical projects, one build at a time.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projects">Explore my work ↘</a>
-        <a class="btn btn-secondary" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">GitHub profile ↗</a>
+  <header>
+    <nav class="wrap">
+      <a class="brand" href="#home">KN<span>.</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </div>
-      <div class="hero-meta">
-        <span><strong>01</strong> &nbsp; Trading tools</span>
-        <span><strong>02</strong> &nbsp; Technology</span>
-        <span><strong>03</strong> &nbsp; Continuous learning</span>
-      </div>
-    </div>
+    </nav>
+  </header>
 
-    <div class="hero-visual reveal">
-      <div class="photo-frame">
-        <!-- Replace this image with your real portrait after uploading it to GitHub. -->
-        <img
-          src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85"
-          alt="Temporary portrait placeholder"
-          fetchpriority="high">
-        <span class="photo-index">KN / 001</span>
-        <div class="photo-tag">Curiosity. Discipline. Progress.</div>
-      </div>
-      <div class="float-card">
-        <small>Currently building</small>
-        <strong>Useful digital tools <span class="green">↗</span></strong>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ticker">
-  <div class="wrap ticker-inner">
-    <span><b>✳</b> Financial markets</span>
-    <span><b>✳</b> Cybersecurity</span>
-    <span><b>✳</b> Web projects</span>
-    <span><b>✳</b> Electronics</span>
-  </div>
-</div>
-
-<section class="section" id="about">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <p class="eyebrow">01 / The person behind the work</p>
-        <h2 style="margin-top:12px">Built on curiosity.</h2>
-      </div>
-      <p>A personal space to document my interests, showcase my projects, and share what I learn along the way.</p>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-note reveal">
-        <div class="symbol">✳</div>
-        <p>I believe progress comes from <span class="green">learning, building,</span> and staying consistent.</p>
-      </div>
-      <div class="about-copy reveal">
-        <p>I'm Kushal Nagaral, a diploma holder in Electronics & Communication with interests spanning financial markets, digital tools and cybersecurity.</p>
-        <p>I enjoy exploring how things work and applying what I learn through hands-on projects. My goal is to keep developing practical skills and create useful work that people can explore and test.</p>
-        <p>This portfolio is a living record of that journey — projects, experiments and progress over time.</p>
-        <div class="about-details">
-          <div class="detail">BACKGROUND<strong>Electronics & Communication</strong></div>
-          <div class="detail">INTERESTS<strong>Markets & Cybersecurity</strong></div>
-          <div class="detail">BUILDING WITH<strong>HTML, CSS & JavaScript</strong></div>
-          <div class="detail">APPROACH<strong>Hands-on learning</strong></div>
+  <main>
+    <div class="wrap hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="dot"></span> Personal Portfolio</div>
+        <h1>Kushal<br><span class="gradient">Nagaral.</span></h1>
+        <p class="intro">
+          Exploring technology, digital products and creative ideas.
+          Building projects, learning continuously, and turning ideas
+          into practical experiences.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work ↗</a>
+          <a class="btn" href="#contact">Get in touch</a>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<section class="section projects" id="projects">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <p class="eyebrow">02 / Selected work</p>
-        <h2 style="margin-top:12px">Things I've built<span class="green">.</span></h2>
-      </div>
-      <p>Practical projects built to explore ideas and solve small, real problems.</p>
-    </div>
-
-    <div class="project-grid">
-      <article class="project-card reveal">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1000&q=85" alt="Financial market charts on a screen" loading="lazy">
-          <span class="project-label">Live project · 01</span>
+      <div class="portrait-wrap">
+        <div class="portrait-frame">
+          <img
+            class="portrait"
+            src="./profile.jpg"
+            alt="Portrait of Kushal Nagaral"
+            onerror="this.onerror=null;this.src='./profile.png';this.onerror=function(){this.style.display='none';this.parentElement.style.background='#171720';this.parentElement.style.minHeight='250px';this.parentElement.innerHTML='<div style=&quot;display:grid;place-items:center;min-height:250px;padding:20px;text-align:center;color:#a2a2b5&quot;>Update the photo filename in index.html to match your uploaded image.</div>'}"
+          >
         </div>
-        <div class="project-body">
-          <div class="project-top">
+        <div class="photo-note">PERSONAL SPACE · BUILT WITH PURPOSE</div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">01 / About</div>
+          <h2>A little about me.</h2>
+          <p>A personal introduction and a space for my journey.</p>
+        </div>
+        <div class="card">
+          <p>
+            I'm Kushal Nagaral. I enjoy exploring digital tools, technology,
+            product ideas and ways to build useful things online. This portfolio
+            brings my interests, projects and contact links together in one place.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">02 / Selected work</div>
+          <h2>Projects & experiments.</h2>
+          <p>A growing collection of things I'm exploring and building.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="symbol">📊</div>
             <h3>Trade Journal & Risk Calculator</h3>
-            <span class="project-number">01 / 02</span>
-          </div>
-          <p>A browser-based journal with risk/reward estimates, trade tracking, performance statistics and CSV export. Trade records are stored locally in the browser.</p>
-          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>GitHub Pages</span></div>
-          <a class="project-link" href="https://kushalnagaral7.github.io/-trade-journal-risk-calculator/" target="_blank" rel="noopener">OPEN LIVE DEMO ↗</a><br>
-          <a class="project-link" href="https://github.com/kushalnagaral7/-trade-journal-risk-calculator" target="_blank" rel="noopener">VIEW SOURCE CODE ↗</a>
-        </div>
-      </article>
-
-      <article class="project-card reveal">
-        <div class="project-image">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=85" alt="Electronic circuit board and components" loading="lazy">
-          <span class="project-label">Portfolio · 02</span>
-        </div>
-        <div class="project-body">
-          <div class="project-top">
+            <p>A project concept for tracking trades, reviewing decisions and calculating risk before entering a position.</p>
+            <div class="tags"><span class="tag">Finance tools</span><span class="tag">Web project</span></div>
+          </article>
+          <article class="card">
+            <div class="symbol">🌐</div>
             <h3>Personal Portfolio</h3>
-            <span class="project-number">02 / 02</span>
-          </div>
-          <p>This portfolio website — built to showcase my background, projects, technical interests and contact links in one place.</p>
-          <div class="tags"><span>HTML</span><span>CSS</span><span>Responsive design</span><span>GitHub Pages</span></div>
-          <a class="project-link" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">EXPLORE GITHUB ↗</a>
+            <p>This website: a central place for my introduction, digital projects and professional links.</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">GitHub Pages</span></div>
+          </article>
+          <article class="card">
+            <div class="symbol">⚡</div>
+            <h3>Digital Product Ideas</h3>
+            <p>Exploring interfaces and concepts for useful digital products and web applications.</p>
+            <div class="tags"><span class="tag">UI design</span><span class="tag">Product concepts</span></div>
+          </article>
+          <article class="card">
+            <div class="symbol">🔍</div>
+            <h3>Technology & Security Learning</h3>
+            <p>Learning about technology, online safety and responsible security practices.</p>
+            <div class="tags"><span class="tag">Learning</span><span class="tag">Security</span></div>
+          </article>
         </div>
-      </article>
-    </div>
-    <p class="muted" style="font-size:11px;margin-top:20px">Project previews use illustrative photography. Screenshots of the actual applications can be added as they become available.</p>
-  </div>
-</section>
-
-<section class="section" id="skills">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <p class="eyebrow">03 / Areas of interest</p>
-        <h2 style="margin-top:12px">Learning by doing.</h2>
       </div>
-      <p>Areas I'm exploring through independent learning and practical experimentation.</p>
-    </div>
+    </section>
 
-    <div class="skill-grid">
-      <div class="skill reveal"><div class="skill-icon">⌘</div><h3>Web Development</h3><p>Building responsive websites and interactive tools.</p></div>
-      <div class="skill reveal"><div class="skill-icon">↗</div><h3>Financial Markets</h3><p>Studying forex, crypto and risk management concepts.</p></div>
-      <div class="skill reveal"><div class="skill-icon">⌁</div><h3>Cybersecurity</h3><p>Exploring security concepts and responsible practice.</p></div>
-      <div class="skill reveal"><div class="skill-icon">⌬</div><h3>Electronics</h3><p>Academic background in Electronics & Communication.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section principles">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <p class="eyebrow">04 / Personal principles</p>
-        <h2 style="margin-top:12px">How I approach growth.</h2>
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow">03 / Interests</div>
+          <h2>What I'm exploring.</h2>
+          <p>Areas of interest, learning and experimentation.</p>
+        </div>
+        <div class="skills">
+          <span class="skill">Digital products</span>
+          <span class="skill">Web design</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">Technology</span>
+          <span class="skill">Cybersecurity fundamentals</span>
+          <span class="skill">Financial tools</span>
+          <span class="skill">Creative problem solving</span>
+        </div>
       </div>
-    </div>
-    <div class="principle-grid">
-      <div class="principle reveal"><h3>01 — Stay curious</h3><p>Ask questions, investigate how things work, and remain open to new ideas.</p></div>
-      <div class="principle reveal"><h3>02 — Build to learn</h3><p>Turn concepts into projects, test them, and improve through feedback.</p></div>
-      <div class="principle reveal"><h3>03 — Keep it honest</h3><p>Represent my experience accurately and show real work instead of inflated claims.</p></div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section class="section" id="contact">
-  <div class="wrap">
-    <div class="contact-box reveal">
-      <p class="eyebrow">05 / Get in touch</p>
-      <h2>Have a project or idea?<br><span class="green">Let's connect.</span></h2>
-      <p>I'm open to connecting with people interested in technology, practical projects and continuous learning.</p>
-      <div class="contact-row">
-        <a class="btn btn-primary" href="mailto:Kn.sec7@gmail.com">Email me ↗</a>
-        <a class="btn btn-secondary" href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">Explore my GitHub ↗</a>
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div class="eyebrow">04 / Connect</div>
+          <h2 style="font-size:clamp(30px,5vw,46px);letter-spacing:-1.8px;margin:12px 0">
+            Let's connect.
+          </h2>
+          <p class="intro">Find me online or explore my work through the links below.</p>
+          <div class="socials" style="margin-top:24px">
+            <a href="https://github.com/kushalnagaral7" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <!-- Replace this email with your real public contact email. -->
+            <a href="mailto:YOUR_EMAIL@example.com">Email ↗</a>
+          </div>
+        </div>
       </div>
-      <div class="socials">
-        <a href="https://github.com/kushalnagaral7" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="https://www.linkedin.com/in/kushal-nagaral-02346a34a/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="https://www.instagram.com/kushaln07/" target="_blank" rel="noopener">Instagram ↗</a>
-        <a href="mailto:Kn.sec7@gmail.com">Email ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
+    </section>
+  </main>
 
-<footer>
-  <div class="wrap footer-inner">
-    <a class="brand" href="#home">KN<span>.</span><
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Kushal Nagaral</span>
+      <span>Personal portfolio · Made with intention.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+  </html>
+  
